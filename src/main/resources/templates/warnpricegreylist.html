@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../styles/GridManager.min.css"/>
+    <link rel="stylesheet" href="../styles/bootstrap.css"   >
+    <link rel="stylesheet" href="../styles/zTreeStyle.css"  >
+
+
+
+    <title></title>
+    <style>
+        #treeUserPermission select {
+            height: 20px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="box-header" style="height:auto;padding:5px;">
+        <div class="box-name">
+            <i class="fa fa-usd"></i><span> 价格风控灰名单</span>
+        </div>
+    </div>
+    <div class="data-box" id="tab" style="min-height:400px;">
+        <div class="box-header" style="padding:5px;height:auto;">
+            <label style="display:inline-block;" for="J_UserNumber">搜索：</label><input
+                    style="display:inline-block;width:200px;" type="search" class="form-control input-sm"
+                    id="J_UserNumber"/>
+            <button type="button" class="btn btn-primary btn-label-left" data-toggle="modal" js-click="searchBtn"  id="searchBtn">
+                确定
+            </button>
+        </div>
+        <div class="charts_box" style="overflow:auto;">
+            <div class="box-content" style="height: auto;">
+                <table grid-manager="greyListModels" class="tb off-table-rank">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="txtSelectedUserID">
+<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+</div>
+<script type="template" id="J_template_editUser">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">订单ID</span>
+                        <input type="text" id="txtUserName" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">用户ID</span>
+                        <input type="text" id="txtEmail" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">房型ID</span>
+                        <input type="text" id="txtUserNum" class="form-control" style="width:150px"/>
+                        &nbsp; &nbsp;<a href="javascript:void(0);" style="vertical-align:central;" id="J_GetEidByEmail">Get
+                            Eid</a>
+                        &nbsp; &nbsp;<span id="lblEid" style="color:#7ccf75; font-size:12px;"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">来源</span>
+                        <input type="text" id="txtRealName1" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">日期</span>
+                        <input type="text" id="txtRealName2" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">最低价格</span>
+                        <input type="text" id="txtRealName3" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width:70px">最高价格</span>
+                        <input type="text" id="txtRealName" class="form-control" style="width:450px"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</script>
+
+
+
+<script src="/scripts/main/site/warnpricegreylist.js" ></script>
+
+
+
+</body>
+</html>
